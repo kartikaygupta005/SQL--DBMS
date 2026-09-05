@@ -1,0 +1,105 @@
+Normalization is the process of organizing data in a database to reduce data redundancy and avoid data anomalies.
+
+The three major problems normalization solves are:
+
+Insertion anomaly
+Update anomaly
+Deletion anomaly
+
+Normalization is divided into forms:
+
+1NF → 2NF → 3NF → BCNF → 4NF → 5NF
+
+
+1NF — First Normal Form
+Every column contains atomic (single) values, and there are no repeating groups.
+A relation is in First Normal Form (1NF) when all attributes contain atomic values,
+meaning each cell contains a single value, and there are no repeating groups or multivalued attributes.
+
+
+
+2NF — Second Normal Form
+
+Now let's move to the most important part: 2NF.
+
+A table is in 2NF if:
+
+It is already in 1NF AND it has no partial dependency.
+
+So remember:
+
+2NF = 1NF + No Partial Dependency
+
+
+
+
+What is a Partial Dependency?
+
+Partial dependency occurs when:
+
+A non-key attribute depends on only a part of a composite primary key, rather than the entire key.
+
+This is the key point.
+
+Composite key?
+
+A primary key made up of more than one column.
+
+
+
+
+3NF — Third Normal Form
+
+Now we move to 3NF, another very common Cognizant interview question.
+
+Definition
+
+A table is in 3NF if:
+
+It is already in 2NF and has no transitive dependency.
+
+So:
+
+3NF = 2NF + No Transitive Dependency
+
+First: What is Transitive Dependency?
+
+Suppose we have:
+
+Emp_ID	Emp_Name	Dept_ID	Dept_Name
+101	      Rahul      	D1    	IT
+102      	Aman	      D2    	HR
+103	       Raj	      D1	    IT
+
+Primary key:
+
+Emp_ID
+
+Now look at the dependencies:
+
+Emp_ID → Emp_Name
+Emp_ID → Dept_ID
+Dept_ID → Dept_Name
+
+Therefore:
+
+Emp_ID → Dept_ID → Dept_Name
+
+This is called transitive dependency.
+
+In simple words:
+
+A non-key column depends on another non-key column instead of directly depending on the primary key.
+
+A relation is in Third Normal Form if it is in 2NF and there is no transitive dependency of a non-key attribute on the primary key. 
+In other words, non-key attributes should depend directly on the key, not on another non-key attribute.
+
+
+
+ BCNF - boyce codd normal form
+
+For every functional dependency X → Y, X must be a super key.
+
+In simpler words:
+
+Every determinant must be a candidate key.
